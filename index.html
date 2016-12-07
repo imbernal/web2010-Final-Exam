@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wikipedia App</title>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body ng-app="wikiApp">
+
+	<div class="mainContainer" ng-controller="MainController">
+		<h2>Wikipdia App</h2>
+		<div class="inputSearch">
+			 <input type="text" id="inputSearch" ng-model="itemSearch" class="form-control" id="exampleInputName2" placeholder="Search in Wikipedia">
+		</div>
+		<h2 id="emtyInput">Ups, check what are looking for!!!</h2>
+		<div id="mainCards">
+			<div class="searchResult" ng-repeat="item in items">
+				<a href="https://en.wikipedia.org/wiki/{{ item.title }}" target="_blank">
+					<div class="eachCard">
+						<h3>{{ item.title }}</h3>
+						<p id="date">Last modified: {{ item.timestamp | date }}</p>
+						<p id="content" ng-bind-html="item.snippet"></p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.9/angular-sanitize.js"></script>
+
+<!-- angular files -->
+
+<script src="assets/js/app.js" ></script>
+<script src="assets/js/service.js" ></script>
+<script src="assets/js/controller.js" ></script>
+
+</body>
+</html>
